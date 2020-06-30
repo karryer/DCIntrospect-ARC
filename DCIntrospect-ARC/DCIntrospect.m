@@ -15,6 +15,8 @@
 #include <unistd.h>
 #include <sys/sysctl.h>
 
+@import WebKit;
+
 BOOL iOS7OrHigher(void);
 NSString* _recursiveDescription(id view, NSUInteger depth);
 
@@ -1537,10 +1539,10 @@ NSString* _recursiveDescription(id view, NSUInteger depth)
 		backingView.backgroundColor = [UIColor colorWithRed:0.0f green:0.0f blue:0.0f alpha:0.85f];
 		[mainWindow addSubview:backingView];
 		
-		UIWebView *webView = [[UIWebView alloc] initWithFrame:backingView.frame];
+		WKWebView *webView = [[WKWebView alloc] initWithFrame:backingView.frame];
 		webView.opaque = NO;
 		webView.backgroundColor = [UIColor clearColor];
-		webView.delegate = self;
+//		webView.delegate = self;
 		[backingView addSubview:webView];
 		
 		NSMutableString *helpString = [NSMutableString stringWithString:@"<html>"];
